@@ -1,4 +1,4 @@
-POST http://localhost:9999/api/tokens
+POST https://auth-servisss.herokuapp.com/api/tokens
 Content-Type: application/json
 
 {
@@ -10,36 +10,49 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:9999/api/users/me
-Authorization: Bearer {{auth_token}}
-
-###
-
-DELETE http://localhost:9999/api/users/1
-Authorization: Bearer {{auth_token}}
-
-###
-
-POST http://localhost:9999/api/users/new
+POST https://auth-servisss.herokuapp.com/api/users/new
 Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
-  "username": "MOMO",
-  "password": "MOMO"
+  "username": "MOMOO",
+  "password": "MOMOO"
 }
 
 ###
 
-POST http://localhost:9999/api/tokens
+POST https://auth-servisss.herokuapp.com/api/tokens
 Content-Type: application/json
 
 {
-  "username": "MOMO",
-  "password": "MOMO"
+  "username": "MOMOO",
+  "password": "MOMOO"
 }
 
 > {% client.global.set("auth_token", response.body.token); %}
+
+###
+
+GET http://localhost:9999/api/products
+Authorization: Bearer {{auth_token}}
+
+###
+
+POST http://localhost:9999/api/products/new
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "name": "Cola",
+  "description": "black drink",
+  "price": 600,
+  "pic": "55d"
+}
+
+###
+
+DELETE http://localhost:9999/api/products/4
+Authorization: Bearer {{auth_token}}
 
 ###
 
