@@ -140,19 +140,27 @@ func (s *Service) UpdateProduct(ctx context.Context,id int64, prod Product) (err
 	}()
 	if prod.Name != "" {
 		_, err = begin.Exec(ctx, `update products set name = $2 where id = $1`, id, prod.Name)
-		return
+		if err != nil {
+			return
+		}
 	}
 	if prod.Description !="" {
 		_, err = begin.Exec(ctx, `update products set description = $2 where id = $1`, id, prod.Description)
-		return
+		if err != nil {
+			return
+		}
 	}
 	if prod.Price != -1 {
 		_, err = begin.Exec(ctx, `update products set price = $2 where id = $1`, id, prod.Price)
-		return
+		if err != nil {
+			return
+		}
 	}
 	if prod.Pic != "" {
 		_, err = begin.Exec(ctx, `update products set pic = $2 where id = $1`, id, prod.Pic)
-		return
+		if err != nil {
+			return
+		}
 	}
 	return nil
 }

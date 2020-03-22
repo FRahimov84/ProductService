@@ -38,15 +38,15 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
-POST http://localhost:9999/api/products/0
+POST http://localhost:9999/api/products/2
 Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
-  "name": "Black star drweink",
+  "name": "Black staddsr drweink",
   "description": "black drink",
-  "price": 600,
-  "pic": "55d"
+  "price": 600334,
+  "pic": "5225d"
 }
 
 ###
