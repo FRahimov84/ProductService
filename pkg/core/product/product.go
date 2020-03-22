@@ -128,11 +128,15 @@ func (s *Service) UpdateProduct(ctx context.Context,id int64, prod Product) (err
 	defer func() {
 		if err != nil {
 			err2 := begin.Rollback(ctx)
-			log.Printf("can't rollback some err %v", err2)
+			if err2 != nil {
+				log.Printf("can't rollback some err %v", err2)
+			}
 			return
 		}
 		err2 := begin.Commit(ctx)
-		log.Printf("can't commit tranzaction err %v", err2)
+		if err2 != nil {
+			log.Printf("can't commit tranzaction err %v", err2)
+		}
 	}()
 	if prod.Name != "" {
 		_, err = begin.Exec(ctx, `update products set name = $2 where id = $1`, id, prod.Name)
