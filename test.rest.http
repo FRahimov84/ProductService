@@ -38,12 +38,12 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
-POST http://localhost:9999/api/products/new
+POST http://localhost:9999/api/products/0
 Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
-  "name": "Cola",
+  "name": "Black star drweink",
   "description": "black drink",
   "price": 600,
   "pic": "55d"
@@ -51,7 +51,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:9999/api/products/4
+DELETE http://localhost:9999/api/products/2
 Authorization: Bearer {{auth_token}}
 
 ###
